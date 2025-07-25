@@ -9,12 +9,27 @@ function updateResult() {
 
 function copyResult() {
   const resultText = document.getElementById('result').textContent;
-  navigator.clipboard.writeText(resultText).then(() => {
-    alert("Copied: " + resultText);
-  });
+
+  if (navigator.clipboard && window.isSecureContext) {
+    // Modern async clipboard API
+    navigator.clipboard.writeText(resultText)
+      .catch(err => alert("Failed to copy: " + err));
+  } else {
+    // Fallback for older browsers
+    const textArea = document.createElement("textarea");
+    textArea.value = resultText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand("copy");
+    } catch (err) {
+      alert("Failed to copy: " + err);
+    }
+    document.body.removeChild(textArea);
+  }
 }
 
-// Attach event listeners to update on input
+// Attach input listeners
 ["param1", "param2", "secret"].forEach(id => {
   document.getElementById(id).addEventListener('input', updateResult);
 });

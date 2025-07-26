@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background: #fff;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +26,7 @@ input, .result, button {
   box-shadow: 0 0px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 0.9rem;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .result {

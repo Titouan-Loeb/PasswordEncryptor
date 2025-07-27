@@ -20,15 +20,16 @@ body {
   align-items: center;
   width: 100%;
   max-width: 320px; /* allows some padding room around 300px inputs */
-  padding: 1rem;
+  margin: 1rem;
 }
 
 input, .result, button {
   width: 100%;
-  padding: 0.8rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
   border: none;
   border-radius: 999px;
-  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 12px rgba(30, 30, 30, 0.2);
   text-align: center;
   font-size: 0.9rem;
   font-family: 'Roboto Mono', monospace;

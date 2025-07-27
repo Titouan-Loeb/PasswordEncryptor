@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("copyBtn").addEventListener("click", copyResult);
+
+  ["param1", "param2", "secret"].forEach(id => {
+    document.getElementById(id).addEventListener("input", updateResult);
+  });
+});
+
 const specialAsciiChars = `!"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
 
 function updateResult() {

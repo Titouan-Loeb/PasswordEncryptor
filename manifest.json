@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Password strenthner",
+  "version": "1.0",
+  "description": "Generate a very strong password out of parameters you choose",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icon_16.png",
+      "48": "icon_48.png",
+      "128": "icon_128.png"
+    }
+  },
+  "icons": {
+    "16": "icon_16.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+  },
+  "permissions": []
+}

@@ -7,6 +7,9 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: 320px;
+  width: 100%;
+  height: auto;
   overflow: hidden;
 }
 
@@ -15,8 +18,9 @@ body {
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-  width: 90%;
-  max-width: 300px;
+  width: 100%;
+  max-width: 320px; /* allows some padding room around 300px inputs */
+  padding: 1rem;
 }
 
 input, .result, button {

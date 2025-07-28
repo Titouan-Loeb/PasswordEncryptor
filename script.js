@@ -56,9 +56,18 @@ function updateResult() {
 function copyResult() {
   const resultText = document.getElementById('result').textContent;
 
+  const showToast = () => {
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2000);
+  };
+
   if (navigator.clipboard && window.isSecureContext) {
     // Modern async clipboard API
     navigator.clipboard.writeText(resultText)
+      .then(showToast)
       .catch(err => alert("Failed to copy: " + err));
   } else {
     // Fallback for older browsers
@@ -67,7 +76,9 @@ function copyResult() {
     document.body.appendChild(textArea);
     textArea.select();
     try {
-      document.execCommand("copy");
+      const success = document.execCommand("copy");
+      if (success) showToast();
+      else throw new Error("execCommand returned false");
     } catch (err) {
       alert("Failed to copy: " + err);
     }

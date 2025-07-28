@@ -61,3 +61,26 @@ button:hover {
     max-width: 400px;
   }
 }
+
+.toast {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+}

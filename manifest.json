@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Password encryptor",
-  "version": "1.2",
-  "description": "Generate a very strong password out of parameters you choose",
+  "version": "1.2.1",
+  "description": "Stop reusing passwords — generate a strong, unique one for every login.",
   "action": {
     "default_popup": "index.html",
     "default_icon": {

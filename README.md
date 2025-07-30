@@ -3,4 +3,4 @@ This tool is a password generation tool that creates strong, unique passwords ba
 
 ## Links
 - You can find the extention in the [Chrome Web Store page](https://chromewebstore.google.com/detail/password-encryptor/dnkhokcbjomalffjhbfaaaajcckhdkaa)
-- You can find also access it through the [website]([https://my-password-encryptor.vercel.app](https://titouan-loeb.github.io/PasswordEncryptor/))
+- You can find also access it through the [website](https://titouan-loeb.github.io/PasswordEncryptor/)

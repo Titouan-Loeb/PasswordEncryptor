@@ -35,7 +35,7 @@ function updateResult() {
       {
         if (countNumbers % 3 === 0)
         {
-            array[i] = specialAsciiChars[parseInt(array[i], 10) + i % 3];
+          array[i] = specialAsciiChars[parseInt(array[i], 10) + i % 3];
         }
         countNumbers++;
       }

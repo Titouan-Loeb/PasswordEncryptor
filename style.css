@@ -45,7 +45,9 @@ input, .result, button {
 }
 
 button {
-  width: 80px;
+  width: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   cursor: pointer;
   background-color: #fff;
   font-weight: bold;

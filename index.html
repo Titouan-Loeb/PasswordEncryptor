@@ -9,13 +9,21 @@
   <link rel="icon" type="image/png" href="icon.png">
 </head>
 <body>
+  <div hidden>
+    <a href="instructions.html" id="help" class="roundButton">
+      <img src="assets/help2.svg" height="16" width="16"/>
+    </a>
+  </div>
   <div class="container">
+    <div class="logo">
+      <img src="assets/hugeLogo.svg" alt="" width="128" height="128">
+      <div class="title">Password encryptor</div>
+    </div>
     <input type="text" id="param1" placeholder="1st parameter" />
     <input type="text" id="param2" placeholder="2nd parameter" />
     <input type="password" id="secret" placeholder="Secret key" />
-
     <input type="password" id="result" class="result" value="Result" readonly hidden="true" />
-    <button  id="copyBtn">Generate password</button>
+    <button class="textButton" id="copyBtn">Generate password</button>
   </div>
 
   <div id="toast" class="toast">Copied to clipboard!</div>

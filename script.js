@@ -35,7 +35,7 @@ function updateResult() {
       {
         if (countNumbers % 3 === 0)
         {
-            array[i] = specialAsciiChars[parseInt(array[i], 10) + i % 3];
+          array[i] = specialAsciiChars[parseInt(array[i], 10) + i % 3];
         }
         countNumbers++;
       }
@@ -55,19 +55,27 @@ function updateResult() {
 
 function copyResult() {
   const resultText = document.getElementById('result').textContent;
+  const param1 = document.getElementById('param1').value;
+  const param2 = document.getElementById('param2').value;
+  const secret = document.getElementById('secret').value;
 
-  const showToast = () => {
+  const showToast = (message) => {
     const toast = document.getElementById("toast");
+    toast.textContent = message;
     toast.classList.add("show");
     setTimeout(() => {
       toast.classList.remove("show");
     }, 2000);
   };
 
-  if (navigator.clipboard && window.isSecureContext) {
+  if (!param1 && !param2) {
+    showToast("Missing at least one parameter");
+  } else if (!secret) {
+    showToast("Missing secret key");
+  } else if (navigator.clipboard && window.isSecureContext) {
     // Modern async clipboard API
     navigator.clipboard.writeText(resultText)
-      .then(showToast)
+      .then(showToast("Copied to clipboard!"))
       .catch(err => alert("Failed to copy: " + err));
   } else {
     // Fallback for older browsers

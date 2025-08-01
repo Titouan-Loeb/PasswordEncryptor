@@ -30,6 +30,10 @@ html:not(.is-extension) body {
   height: -webkit-fill-available;
 }
 
+main {
+  margin: 30px 0px;
+}
+
 .title {
   font-size: 24px;
   font-weight: 600;

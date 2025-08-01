@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Password encryptor",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Stop reusing passwords — generate a strong, unique one for every login.",
   "action": {
     "default_popup": "index.html",

@@ -1,0 +1,7 @@
+/* Exclude for Chrome Extension (Chrome uses Blink, not WebKit) */
+html:not(.is-extension) html {
+  height: -webkit-fill-available;
+}
+html:not(.is-extension) body {
+  height: -webkit-fill-available;
+}

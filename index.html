@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css" />
   <link rel="stylesheet" href="styles/noZoomPhone.css" />
+  <link rel="stylesheet" href="styles/logo.css" />
   <link rel="icon" type="image/png" href="assets/icon.png">
   <script src="scripts/environmen-checks.js"></script>
 </head>
@@ -21,9 +22,28 @@
       <img src="assets/hugeLogo.svg" alt="" width="128" height="128">
       <div class="title">Password encryptor</div>
     </div>
-    <input type="text" id="param1" placeholder="1st parameter" />
-    <input type="text" id="param2" placeholder="2nd parameter" />
+    <div class="numberOfParams">
+      <div class="numberOfParams-title">Number of parameters:</div>
+      <div class="numberOfParams-buttons-box">
+        <button id="decreaseParam" class="littleRoundButton">-</button>
+        <button id="increaseParam" class="littleRoundButton">+</button>
+      </div>
+    </div>
+    <div class="parameters" id="parameters">
+      <input type="text" id="param1" placeholder="Parameter n°1" />
+      <input type="text" id="param2" placeholder="Parameter n°2" />
+    </div>
     <input type="password" id="secret" placeholder="Secret key" />
+    <div class="subtitle">Number of characters:</div>
+    <div class="sliderContainer">
+      <input type="range" min="10" max="32" value="16" id="slider"/>
+      <div class="tooltip" id="follower">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-box">
+          <div class="tooltip-value" id="password-length">16</div>
+        </div>
+      </div>
+    </div>
     <button class="textButton" id="copyBtn">Generate password</button>
   </div>
 

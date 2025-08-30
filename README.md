@@ -1,16 +1,18 @@
 # Password encryptor
 ## Presentation
 This extension is a secure password generation tool that creates strong, unique passwords based on three user-provided inputs:
-- 2 customizable parameters
-- 1 secret key
+- Any number of customizable parameters
+- One secret key
+- A slider to select the length of the password
 
 It is designed to help users generate strong, consistent passwords without storing any data. This tool creates a unique password by hashing your inputs with the SHA-256 algorithm and applying a set of transformations to ensure the result contains uppercase and lowercase letters, numbers, and special characters. The same input will always generate the same output — making it ideal for reproducible, site-specific passwords without the need for storage.
 
 ## How to use
-1. Enter one or two parameters — these can represent the website, account type, or any other distinguishing detail (e.g., "amazon", "personal").
-2. Enter a secret key — this acts as your private master key. Choose something memorable that you’ve never written down or shared. It can stay the same across all your accounts.
-3. Click the “Copy” button to copy the generated password to your clipboard.
-4. Paste the password into your login form or password manager.
+1. Select the number of parameters you want — these can represent the website, account type, or any other distinguishing detail (e.g., "amazon", "personal").
+2. Enter all parameters values
+3. Enter a secret key — this acts as your private master key. Choose something memorable that you’ve never written down or shared. It can stay the same across all your accounts.
+4. Click the “Generate password” button to copy the generated password to your clipboard.
+5. Paste the password into your login form.
 
 ## Example
 To generate a password for your Amazon personal account, you might enter:

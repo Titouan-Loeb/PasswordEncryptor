@@ -1,3 +1,11 @@
+input {
+  padding: 0;
+  margin: 0;
+  border: none;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
 html {
   padding: 0px 30px;
   min-height: fit-content;
@@ -26,20 +34,6 @@ main {
   margin: 30px 0px;
 }
 
-.title {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 20px;
-  filter: drop-shadow(0 4px 12px rgb(4, 1, 156));
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -55,25 +49,16 @@ main {
   margin: 0.8rem;
 }
 
-input {
+input[type="password"], input[type="text"] {
   width: 100%;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
   border: none;
   border-radius: 999px;
-  box-shadow: inset 0 4px 12px rgb(133, 132, 187);
+  box-shadow: inset 0 4px 12px rgb(133, 132, 187, 0.8);
   text-align: center;
   font-size: 0.9rem;
   font-family: 'Roboto Mono', monospace;
-}
-
-.result {
-  background: #ffffff;
-  color: #747474;
-  user-select: all;
-  cursor: text;
-  overflow-wrap: break-word;
-  box-shadow: inset 0 0px 12px rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -81,7 +66,7 @@ button {
   padding-bottom: 0.8rem;
   border: none;
   border-radius: 999px;
-  box-shadow: 0 4px 12px rgb(133, 132, 187);
+  box-shadow: 0 4px 12px rgb(133, 132, 187, 0.8);
   text-align: center;
   font-size: 0.9rem;
   font-family: 'Roboto Mono', monospace;
@@ -104,7 +89,7 @@ button {
   justify-content: center;
   border: none;
   border-radius: 999px;
-  box-shadow: 0 4px 12px rgb(133, 132, 187);
+  box-shadow: 0 4px 12px rgb(133, 132, 187, 0.8);
   text-align: center;
   font-size: 0.9rem;
   font-family: 'Roboto Mono', monospace;
@@ -113,9 +98,6 @@ button {
   cursor: pointer;
   background-color: #fff;
   transition: background 0.2s ease;
-  color: #030163;
-  color: rgb(179, 255, 0);
-
 }
 
 #help {
@@ -125,7 +107,7 @@ button {
 }
 
 #copyBtn {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 button:hover {
@@ -153,4 +135,125 @@ button:hover {
 .toast.show {
   visibility: visible;
   opacity: 1;
+}
+
+#slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  outline: none;
+  border-radius: 999px;
+  box-shadow: inset 0 4px 12px rgb(133, 132, 187, 0.8);
+}
+
+#slider::-webkit-slider-thumb {
+  /* opacity: 0; */
+  -webkit-appearance: none;
+  background: #fff;
+  /* border: none; */
+  /* box-shadow: none; */
+  box-shadow: 0 4px 12px rgb(133, 132, 187, 0.8);
+  border-radius: 999px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: +10;
+}
+
+.sliderContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* margin-right: 30px; */
+  height: fit-content;
+}
+
+.sliderContainer .tooltip {
+  position: relative;
+  width: 2.8em;
+  top: 2.5em;
+  left: 114px;
+  transform: translate(-50%, -50%);
+}
+
+.sliderContainer .tooltip .tooltip-box {
+  position: relative;
+  height: 2em;
+  background: #fff;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.sliderContainer .tooltip .tooltip-arrow {
+  content: '';
+  position: relative;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid #fff;
+  top: 0.1em;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.sliderContainer .tooltip .tooltip-value {
+  color: #030163;
+  font-weight: 500;
+}
+
+.subtitle {
+  padding-top: 8px;
+  font-size: 16px;
+  align-self: flex-start;
+}
+
+.numberOfParams {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.numberOfParams-title {
+  font-size: 16px;
+}
+
+.numberOfParams-buttons-box {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.littleRoundButton {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(133, 132, 187, 0.8);
+  text-align: center;
+  font-size: 1.0rem;
+  font-weight: 500;
+  font-family: 'Roboto Mono', monospace;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background 0.2s ease;
+  color: #030163;
+  user-select: none;
+}
+
+.parameters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
 }

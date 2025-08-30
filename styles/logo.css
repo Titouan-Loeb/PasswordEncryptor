@@ -1,0 +1,21 @@
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  filter: drop-shadow(0 4px 12px rgb(4, 1, 156));
+}
+
+html:is(.is-extension) .logo img {
+  display: none;
+}
+
+html:is(.is-extension) .logo {
+  padding-top: 20px;
+}

@@ -16,44 +16,48 @@
     </a>
   </div>
   <main>
-  <section>
-    <h1>Presentation</h1>
-    <p>This extension is a secure password generation tool that creates strong, unique passwords based on three user-provided inputs:</p>
-    <ul>
-      <li>2 customizable parameters</li>
-      <li>1 secret key</li>
-    </ul>
-    <p>
-      It is designed to help users generate strong, consistent passwords without storing any data. This tool creates a unique password by hashing your inputs with the SHA-256 algorithm and applying a set of transformations to ensure the result contains uppercase and lowercase letters, numbers, and special characters.
-    </p>
-    <p>The same input will always generate the same output — making it ideal for reproducible, site-specific passwords without the need for storage.</p>
-  </section>
+    <section>
+      <h1>Presentation</h1>
+      <p>This extension is a secure password generation tool that creates strong, unique passwords based on three user-provided inputs:</p>
+      <ul>
+        <li>Any number of parameters</li>
+        <li>One secret key</li>
+        <li>A slider to select the length of the password</li>
+      </ul>
+      <p>
+        It is designed to help users generate strong, consistent passwords without storing any data. This tool creates a unique password by hashing your inputs with the SHA-256 algorithm and applying a set of transformations to ensure the result contains uppercase and lowercase letters, numbers, and special characters.
+      </p>
+      <p>The same input will always generate the same output — making it ideal for reproducible, site-specific passwords without the need for storage.</p>
+    </section>
 
-  <section>
-    <h2>How to Use</h2>
-    <ol>
-      <li>Enter one or two parameters — these can represent the website, account type, or any other distinguishing detail.</li>
-      <li>Enter a secret key — this acts as your private master key. Choose something memorable that you’ve never written down or shared. It can stay the same across all your accounts.</li>
-      <li>Click the <strong>“Generate password”</strong> button to copy the generated password to your clipboard.</li>
-      <li>Paste the password into your login form.</li>
-    </ol>
-  </section>
+    <section>
+      <h2>How to Use</h2>
+      <ol>
+        <li>Select the number of parameters you want — these can represent the website, account type, or any other distinguishing detail.</li>
+        <li>Enter all parameters values</li>
+        <li>Enter a secret key — this acts as your private master key. Choose something memorable that you’ve never written down or shared. It can stay the same across all your accounts.</li>
+        <li>Select the length of your password with the slider</li>
+        <li>Click the <strong>“Generate password”</strong> button to copy the generated password to your clipboard.</li>
+        <li>Paste the password into your login form.</li>
+      </ol>
+    </section>
 
-  <section>
-    <h2>Example</h2>
-    <p>To generate a password for your Amazon personal account, you might enter:</p>
-    <ul>
-      <li><strong>1st parameter:</strong> amazon</li>
-      <li><strong>2nd parameter:</strong> personal</li>
-      <li><strong>Secret key:</strong> your private key</li>
-    </ul>
-    <p>The tool will then generate a secure password you can paste directly into your Amazon login.</p>
-  </section>
+    <section>
+      <h2>Example</h2>
+      <p>To generate a password for your Amazon personal account, you might enter:</p>
+      <ul>
+        <li><strong>1st parameter:</strong> amazon</li>
+        <li><strong>2nd parameter:</strong> personal</li>
+        <li><strong>Secret key:</strong> your private key</li>
+      </ul>
+      <p>The tool will then generate a secure password you can paste directly into your Amazon login.</p>
+    </section>
 
-  <section>
-    <h2>Privacy Note</h2>
-    <p>This extension does not store any of your data. All processing is done locally in your browser. Nothing is saved or transmitted — your inputs are used only for generating the output.</p>
-  </section>
-</main>
+    <section>
+      <h2>Privacy Note</h2>
+      <p>This extension does not store any of your data. All processing is done locally in your browser. Nothing is saved or transmitted — your inputs are used only for generating the output.</p>
+      <p>This project is open source, you can check the code here: <a href="https://github.com/Titouan-Loeb/PasswordEncryptor">https://github.com/Titouan-Loeb/PasswordEncryptor</a></p>
+    </section>
+  </main>
 </body>
 </html>

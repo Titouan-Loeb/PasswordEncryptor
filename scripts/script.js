@@ -4,16 +4,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const specialAsciiChars = `!"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
 
+function getAllParamValues() {
+  const parametersDiv = document.getElementById("parameters");
+  return Array.from(parametersDiv.querySelectorAll("input"))
+              .map(input => input.value);
+}
+
+function getMaxLength(params, secretLength)
+{
+  let maxLength = secretLength;
+  for (let i = 0; i < params.length; i++) {
+    maxLength = Math.max(params[i].length, maxLength);
+  }
+  return maxLength;
+}
+
 async function getPassword() {
-  const param1 = document.getElementById('param1').value;
-  const param2 = document.getElementById('param2').value;
+  const params = getAllParamValues();
   const secret = document.getElementById('secret').value;
+  const length = document.getElementById("slider").value;
 
   let concat = '';
-  const maxLen = Math.max(param1.length, param2.length, secret.length);
+  const maxLen = getMaxLength(params, secret.length);
   for (let i = 0; i < maxLen; i++) {
-    if (i < param1.length) concat += param1[i];
-    if (i < param2.length) concat += param2[i];
+    for (let j = 0; j < params.length; j++) {
+      if (i < params[j].length) concat += params[j][i];
+    }
     if (i < secret.length) concat += secret[i];
   }
   const encoder = new TextEncoder();
@@ -21,7 +37,7 @@ async function getPassword() {
   const hashBuffer = await crypto.subtle.digest('SHA-256', encoder.encode(concat));
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const hashResult = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  const hashSubstring = hashResult.substring(0, 16).toLowerCase();
+  const hashSubstring = hashResult.substring(0, length).toLowerCase();
   let array = hashSubstring.split('');
   let countNumbers = -1;
   for (let i = 0; i < array.length; i++) {
@@ -84,3 +100,48 @@ async function copyResult() {
     document.body.removeChild(textArea);
   }
 }
+
+
+const slider = document.getElementById("slider");
+const follower = document.getElementById("follower");
+const container = document.querySelector(".sliderContainer");
+const sliderValue = document.getElementById("password-length");
+
+function updateFollower() {
+  sliderValue.innerHTML = slider.value
+  const val = (slider.value - slider.min) / (slider.max - slider.min);
+  const sliderWidth = slider.offsetWidth;
+  const thumbWidth = 24;
+  const pos = val * (sliderWidth - thumbWidth) + thumbWidth / 2;
+  follower.style.left = pos + "px";
+}
+
+slider.addEventListener("input", updateFollower);
+window.addEventListener("resize", updateFollower);
+
+
+const parametersDiv = document.getElementById("parameters");
+const increaseBtn = document.getElementById("increaseParam");
+const decreaseBtn = document.getElementById("decreaseParam");
+
+function getParamCount() {
+  return parametersDiv.querySelectorAll("input").length;
+}
+
+increaseBtn.addEventListener("click", () => {
+  const count = getParamCount() + 1;
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.id = `param${count}`;
+  input.placeholder = `Parameter n°${count}`;
+
+  parametersDiv.appendChild(input);
+});
+
+decreaseBtn.addEventListener("click", () => {
+  const count = getParamCount();
+  if (count > 1) { // always at least one element
+    parametersDiv.removeChild(parametersDiv.lastElementChild);
+  }
+});

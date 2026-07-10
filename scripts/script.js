@@ -63,7 +63,6 @@ async function getPassword() {
 
 async function copyResult() {
   const param1 = document.getElementById('param1').value;
-  const param2 = document.getElementById('param2').value;
   const secret = document.getElementById('secret').value;
 
   const showToast = (message) => {
@@ -75,7 +74,7 @@ async function copyResult() {
     }, 2000);
   };
 
-  if (!param1 && !param2) {
+  if (!param1) {
     showToast("Missing at least one parameter");
   } else if (!secret) {
     showToast("Missing secret key");

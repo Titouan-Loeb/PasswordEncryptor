@@ -32,6 +32,7 @@ async function getPassword() {
     }
     if (i < secret.length) concat += secret[i];
   }
+  concat.toLowerCase();
   const encoder = new TextEncoder();
   encoder.encode(concat);
   const hashBuffer = await crypto.subtle.digest('SHA-256', encoder.encode(concat));

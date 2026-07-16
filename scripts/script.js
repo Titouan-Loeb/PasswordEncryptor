@@ -78,20 +78,31 @@ async function copyResult() {
     showToast("Missing at least one parameter");
   } else if (!secret) {
     showToast("Missing secret key");
+  } else if (navigator.clipboard && window.isSecureContext && window.ClipboardItem) {
+    // Safari only allows clipboard writes made synchronously within the user
+    // gesture. Passing a Blob promise into ClipboardItem lets the password be
+    // computed asynchronously (crypto.subtle.digest) while still satisfying that.
+    const passwordBlob = getPassword().then(password => new Blob([password], { type: "text/plain" }));
+    try {
+      await navigator.clipboard.write([new ClipboardItem({ "text/plain": passwordBlob })]);
+      showToast("Copied to clipboard!");
+    } catch (err) {
+      alert("Failed to copy: " + err);
+    }
   } else if (navigator.clipboard && window.isSecureContext) {
     // Modern async clipboard API
     navigator.clipboard.writeText(await getPassword())
-      .then(showToast("Copied to clipboard!"))
+      .then(() => showToast("Copied to clipboard!"))
       .catch(err => alert("Failed to copy: " + err));
   } else {
     // Fallback for older browsers
     const textArea = document.createElement("textarea");
-    textArea.value = getPassword();
+    textArea.value = await getPassword();
     document.body.appendChild(textArea);
     textArea.select();
     try {
       const success = document.execCommand("copy");
-      if (success) showToast();
+      if (success) showToast("Copied to clipboard!");
       else throw new Error("execCommand returned false");
     } catch (err) {
       alert("Failed to copy: " + err);
